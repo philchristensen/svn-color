@@ -18,9 +18,12 @@ tabsize = 4
 
 colorizedSubcommands = (
 	'status',
+	'stat',
+	'st',
 	'add',
 	'remove',
 	'diff',
+	'di',
 )
 
 statusColors = {
