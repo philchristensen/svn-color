@@ -36,9 +36,9 @@ statusColors = {
 }
 
 def colorize(line):
-    for color in statusColors:
-        if line.startswith(color):
-            return ''.join(("\033[", statusColors[color], "m", line, "\033[m"))
+    for status in statusColors:
+        if line.startswith(status):
+            return ''.join(("\033[", statusColors[status], "m", line, "\033[m"))
     else:
         return line
 
