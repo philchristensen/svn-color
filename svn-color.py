@@ -45,7 +45,7 @@ def colorize(line):
 if __name__ == '__main__':
     command = sys.argv
     command[0] = '/usr/bin/svn'
-    subcommand = '' if len(command) < 2 else command[1]
+    subcommand = (command[1], '')[len(command) < 2]
     if subcommand in colorizedSubcommands and sys.stdout.isatty():
         task = subprocess.Popen(command, stdout=subprocess.PIPE)
         for line in task.stdout:
