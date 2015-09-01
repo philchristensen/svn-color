@@ -48,8 +48,12 @@ if __name__ == '__main__':
     subcommand = (command[1], '')[len(command) < 2]
     if subcommand in colorizedSubcommands and sys.stdout.isatty():
         task = subprocess.Popen(command, stdout=subprocess.PIPE)
-        for line in task.stdout:
+        while True:
+            line = task.stdout.readline()
+            if not line:
+                break
             sys.stdout.write(colorize(line))
+            sys.stdout.flush()
     else:
         task = subprocess.Popen(command)
     task.communicate()
